@@ -1,0 +1,17 @@
+pkgname="wmavgload"
+pkgver=0.7
+pkgrel=0
+url="https://archive.debian.net/woody/i386/wmavgload"
+pkgdesc="wmavgload provides CPU load averages integrated over 5 (main window), 30 and 60 seconds."
+sources=("http://archive.debian.org/debian/pool/main/w/wmavgload/wmavgload_$pkgver.$pkgrel.orig.tar.gz")
+depends=('lib32-kylixlibs' 'libstdc++296')
+#Debian: depends=('libc6' 'libxpm4' 'xlib6g')
+#xlibs -> libxpm4
+optdepends=('wmaker' 'wmload')
+sha256sums=('ae25d8b9bf7856fb42ddffe438bb9f51b4620e0775ae95a83f02874b25d3b555')
+license=('custom')
+package() {
+xmkmf
+make
+make install
+}
